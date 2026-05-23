@@ -32,3 +32,27 @@ output "default_subnet_ids" {
   description = "Default subnet IDs"
   value       = data.aws_subnets.default.ids
 }
+output "ecs_task_execution_role_arn" {
+  description = "ECS task execution role ARN"
+  value       = aws_iam_role.ecs_task_execution_role.arn
+}
+
+output "s3_app_task_role_arn" {
+  description = "Task role ARN for the S3 Flask app"
+  value       = aws_iam_role.s3_app_task_role.arn
+}
+
+output "sqs_app_task_role_arn" {
+  description = "Task role ARN for the SQS Flask app"
+  value       = aws_iam_role.sqs_app_task_role.arn
+}
+
+output "s3_app_log_group_name" {
+  description = "CloudWatch log group for the S3 Flask app"
+  value       = aws_cloudwatch_log_group.s3_app.name
+}
+
+output "sqs_app_log_group_name" {
+  description = "CloudWatch log group for the SQS Flask app"
+  value       = aws_cloudwatch_log_group.sqs_app.name
+}
